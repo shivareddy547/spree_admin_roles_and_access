@@ -1,5 +1,5 @@
 module Spree
-  module Spree::AbilityDecorator
+  module AbilityDecorator
 
     def initialize(user)
       self.clear_aliased_actions

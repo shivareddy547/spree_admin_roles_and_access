@@ -1,4 +1,6 @@
-Spree::Role.class_eval do
+
+module Spree
+  module RoleDecorator
 
   has_many :roles_permission_sets, dependent: :destroy
   has_many :permission_sets, through: :roles_permission_sets
@@ -15,4 +17,6 @@ Spree::Role.class_eval do
   end
 
   scope :default_role, lambda { where(is_default: true) }
-end
+  end
+  end
+::Spree::Role.prepend(Spree::RoleDecorator)
